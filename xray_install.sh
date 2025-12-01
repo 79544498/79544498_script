@@ -3,7 +3,7 @@
 set -e
 
 apt update
-apt install -y ssh vim curl zip wget openssl
+apt install -y ssh vim curl zip
 
 cat >/etc/sysctl.d/fq.conf <<EOF
 net.core.default_qdisc=fq
@@ -20,3 +20,5 @@ openssl enc -d -aes-256-cbc -in /root/config.bin -out /usr/local/etc/xray/config
 
 systemctl enable xray
 systemctl restart xray
+
+rm /root/config.bin
